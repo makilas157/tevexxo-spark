@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as WhyTevexxoRouteImport } from './routes/why-tevexxo'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhyTevexxoRoute = WhyTevexxoRouteImport.update({
   id: '/why-tevexxo',
   path: '/why-tevexxo',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
+  '/services': typeof ServicesRoute
   '/why-tevexxo': typeof WhyTevexxoRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
+  '/services': typeof ServicesRoute
   '/why-tevexxo': typeof WhyTevexxoRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,23 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
+  '/services': typeof ServicesRoute
   '/why-tevexxo': typeof WhyTevexxoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/contact' | '/projects' | '/why-tevexxo'
+  fullPaths:
+    '/' | '/blog' | '/contact' | '/projects' | '/services' | '/why-tevexxo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/contact' | '/projects' | '/why-tevexxo'
-  id: '__root__' | '/' | '/blog' | '/contact' | '/projects' | '/why-tevexxo'
+  to: '/' | '/blog' | '/contact' | '/projects' | '/services' | '/why-tevexxo'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/contact'
+    | '/projects'
+    | '/services'
+    | '/why-tevexxo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +93,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
+  ServicesRoute: typeof ServicesRoute
   WhyTevexxoRoute: typeof WhyTevexxoRoute
 }
 
@@ -109,6 +127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/why-tevexxo': {
       id: '/why-tevexxo'
       path: '/why-tevexxo'
@@ -124,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
+  ServicesRoute: ServicesRoute,
   WhyTevexxoRoute: WhyTevexxoRoute,
 }
 export const routeTree = rootRouteImport
