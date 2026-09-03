@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Cpu, Boxes, ShieldCheck, Rocket, Sparkles, LineChart } from "lucide-react";
 import hexBg from "@/assets/hex-bg.jpg";
 import { Mascot } from "@/components/site/Mascot";
+import { OrbitShowcase } from "@/components/site/OrbitShowcase";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/Section";
 
@@ -104,10 +105,7 @@ function Home() {
           </Reveal>
 
           <Reveal delay={140} className="flex justify-center">
-            <div className="relative">
-              <div className="hex-clip absolute inset-0 -z-10 scale-125 bg-primary/10" />
-              <Mascot size={340} priority alt="Tevexxo robot mascot waving beside the hero headline" />
-            </div>
+            <OrbitShowcase size={420} />
           </Reveal>
         </div>
 

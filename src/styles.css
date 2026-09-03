@@ -187,3 +187,28 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+@keyframes tvx-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes tvx-orbit-counter {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@utility orbit-spin {
+  animation: tvx-orbit 40s linear infinite;
+}
+
+@utility orbit-counter {
+  animation: tvx-orbit-counter 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-spin,
+  .orbit-counter {
+    animation-play-state: paused;
+  }
+}

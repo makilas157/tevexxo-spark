@@ -1,10 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Hexagon } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { LogoMark } from "./Logo";
 import { cn } from "@/lib/utils";
 
 const links = [
   { to: "/", label: "Home" },
+  { to: "/services", label: "Services" },
+  { to: "/products", label: "Products" },
   { to: "/projects", label: "Projects" },
   { to: "/why-tevexxo", label: "Why Tevexxo" },
   { to: "/blog", label: "Blog" },
@@ -33,10 +36,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
         <Link to="/" className="group flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="relative grid size-9 place-items-center">
-            <Hexagon className="size-9 text-primary transition-transform duration-500 group-hover:rotate-90" />
-            <span className="absolute size-2 rounded-full bg-primary shadow-[0_0_16px_var(--primary)]" />
-          </span>
+          <LogoMark size={36} className="transition-transform duration-500 group-hover:scale-105" />
           <span className="font-display text-lg font-bold tracking-widest uppercase">
             Tev<span className="text-primary text-glow">exxo</span>
           </span>

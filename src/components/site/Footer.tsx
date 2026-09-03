@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Hexagon, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { LogoMark } from "./Logo";
 import { Mascot } from "./Mascot";
 
 export function Footer() {
@@ -13,7 +14,7 @@ export function Footer() {
       <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <Hexagon className="size-7 text-primary" />
+            <LogoMark size={32} />
             <span className="font-display text-lg font-bold tracking-widest uppercase">
               Tev<span className="text-primary">exxo</span>
             </span>
@@ -41,6 +42,8 @@ export function Footer() {
           <ul className="mt-4 space-y-2 text-muted-foreground">
             {[
               { to: "/", label: "Home" },
+              { to: "/services", label: "Services" },
+              { to: "/products", label: "Products" },
               { to: "/projects", label: "Projects" },
               { to: "/why-tevexxo", label: "Why Tevexxo" },
               { to: "/blog", label: "Blog" },
